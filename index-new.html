@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST - Blog Cards Zichtbaar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-soft-beige p-8">
+    <h1 class="text-4xl font-bold text-center mb-8">🧪 TEST: Blog Cards Moet Je NU Zien!</h1>
+
+    <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer border-4 border-red-500">
+                <div class="relative h-56 bg-gradient-to-br from-warm-terracotta to-soft-orange flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-2 bg-white text-warm-terracotta rounded-full text-sm font-bold shadow-lg">Relatiecoaching</span>
+                    </div>
+                </div>
+                <div class="p-6 bg-yellow-50">
+                    <div class="flex items-center gap-4 text-sm text-warm-gray/60 mb-3">
+                        <span>📅 15 sep 2024</span>
+                        <span>👤 Kimi</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-warm-gray mb-3">
+                        5 Tekenen dat jullie relatie baat heeft bij coaching
+                    </h3>
+                    <p class="text-warm-gray/70 mb-4">
+                        Ontdek de belangrijkste signalen die aangeven dat relatiecoaching jullie kan helpen.
+                    </p>
+                    <div class="flex items-center text-warm-terracotta font-semibold">
+                        Lees meer →
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer border-4 border-green-500">
+                <div class="relative h-56 bg-gradient-to-br from-deep-green to-green-700 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-2 bg-white text-deep-green rounded-full text-sm font-bold shadow-lg">Methode</span>
+                    </div>
+                </div>
+                <div class="p-6 bg-green-50">
+                    <div class="flex items-center gap-4 text-sm text-warm-gray/60 mb-3">
+                        <span>📅 22 sep 2024</span>
+                        <span>👤 Kimi</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-warm-gray mb-3">
+                        Hoe LEGO® Serious Play communicatie verbetert
+                    </h3>
+                    <p class="text-warm-gray/70 mb-4">
+                        Leer hoe het bouwen met LEGO® blokjes communicatie versterkt.
+                    </p>
+                    <div class="flex items-center text-deep-green font-semibold">
+                        Lees meer →
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer border-4 border-orange-500">
+                <div class="relative h-56 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <div class="absolute top-4 right-4">
+                        <span class="px-4 py-2 bg-white text-orange-600 rounded-full text-sm font-bold shadow-lg">Succesverhaal</span>
+                    </div>
+                </div>
+                <div class="p-6 bg-orange-50">
+                    <div class="flex items-center gap-4 text-sm text-warm-gray/60 mb-3">
+                        <span>📅 28 sep 2024</span>
+                        <span>👤 Kimi</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-warm-gray mb-3">
+                        Sarah en Mark bliezen hun relatie nieuw leven in
+                    </h3>
+                    <p class="text-warm-gray/70 mb-4">
+                        Na 15 jaar huwelijk vonden ze de verbinding weer terug.
+                    </p>
+                    <div class="flex items-center text-orange-600 font-semibold">
+                        Lees meer →
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 p-8 bg-yellow-100 border-4 border-yellow-500 rounded-xl">
+            <h2 class="text-2xl font-bold mb-4">✅ Zie je deze 3 kleurrijke cards?</h2>
+            <p class="mb-4">Dan werkt alles! Het probleem was browser caching.</p>
+            <p class="mb-4"><strong>Oplossing:</strong></p>
+            <ol class="list-decimal ml-6 space-y-2">
+                <li>Ga naar <code class="bg-white px-2 py-1 rounded">127.0.0.1:8000/index.html</code></li>
+                <li>Druk op <strong>Ctrl + F5</strong> (of Ctrl + Shift + R)</li>
+                <li>Of open in een <strong>Incognito/Private venster</strong></li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

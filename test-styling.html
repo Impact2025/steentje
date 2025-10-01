@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Styling - Steentje bij Steentje</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #FEFCF8 0%, #F5F1EB 100%);
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="max-w-2xl mx-auto p-8 bg-white rounded-2xl shadow-2xl">
+        <h1 class="text-4xl font-bold text-warm-gray mb-4">✅ Styling Test</h1>
+
+        <div class="space-y-4">
+            <div class="p-4 bg-warm-terracotta text-white rounded-lg">
+                <h2 class="font-bold">Warm Terracotta</h2>
+                <p>Als je deze box ziet met oranje/bruine achtergrond, werkt Tailwind CSS!</p>
+            </div>
+
+            <div class="p-4 bg-deep-green text-white rounded-lg">
+                <h2 class="font-bold">Deep Green</h2>
+                <p>Als je deze box ziet met groene achtergrond, werken de custom kleuren!</p>
+            </div>
+
+            <div class="p-4 bg-soft-beige text-warm-gray rounded-lg">
+                <h2 class="font-bold">Soft Beige</h2>
+                <p>Als je deze box ziet met beige achtergrond, is alles correct geladen!</p>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <h3 class="font-bold text-blue-800 mb-2">📋 Checklist:</h3>
+            <ul class="text-sm text-blue-700 space-y-1">
+                <li>✓ Zie je kleuren? → Tailwind werkt</li>
+                <li>✓ Zie je ronde hoeken? → CSS werkt</li>
+                <li>✓ Is de tekst leesbaar? → Fonts werken</li>
+            </ul>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a href="index.html" class="inline-block px-6 py-3 bg-warm-terracotta text-white rounded-full hover:bg-soft-orange transition-all">
+                Ga naar hoofdpagina
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Test of JavaScript werkt
+        console.log('✅ JavaScript werkt!');
+        console.log('✅ Tailwind CSS geladen:', typeof tailwind !== 'undefined');
+    </script>
+</body>
+</html>

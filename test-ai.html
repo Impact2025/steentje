@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test AI Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8">
+    <h1 class="text-2xl font-bold mb-4">Test AI Generator Functie</h1>
+
+    <button onclick="testAIFunction()" class="bg-blue-500 text-white px-6 py-3 rounded">
+        Test AI Generator Knop
+    </button>
+
+    <div id="result" class="mt-4 p-4 bg-gray-100 rounded"></div>
+
+    <script>
+        function testAIFunction() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Knop werkt! Functie is aangeroepen.<br>';
+
+            // Test of blog-admin.js geladen kan worden
+            resultDiv.innerHTML += 'Proberen blog-admin.js functies te laden...<br>';
+
+            // Simuleer wat de AI generator doet
+            const testData = {
+                keyword: "Test Keyword",
+                title: "",
+                category: "Relatiecoaching",
+                extraKeywords: "test1, test2",
+                tone: "vriendelijk",
+                audience: "algemeen",
+                length: "medium"
+            };
+
+            resultDiv.innerHTML += 'Test data: ' + JSON.stringify(testData, null, 2);
+        }
+    </script>
+
+    <hr class="my-8">
+
+    <h2 class="text-xl font-bold mb-4">Direct naar Admin Dashboard</h2>
+    <p class="mb-4">Klik op de onderstaande link en kijk in de browser console (F12) voor errors:</p>
+    <a href="admin-blog.html" class="bg-green-500 text-white px-6 py-3 rounded inline-block">
+        Ga naar Admin Dashboard
+    </a>
+
+    <div class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded">
+        <h3 class="font-bold mb-2">Debug Instructies:</h3>
+        <ol class="list-decimal ml-6 space-y-2">
+            <li>Open admin-blog.html</li>
+            <li>Druk op <strong>F12</strong> om Developer Tools te openen</li>
+            <li>Ga naar het <strong>Console</strong> tabblad</li>
+            <li>Klik op de "AI Generator" knop</li>
+            <li>Kijk of er rode error berichten verschijnen</li>
+            <li>Screenshot de errors en deel ze met mij</li>
+        </ol>
+    </div>
+</body>
+</html>

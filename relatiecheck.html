@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RelatieCheck - Steentje bij Steentje</title>
+    <meta name="description" content="Ontdek waar jullie relatie nu staat met onze gratis RelatieCheck. In 3-5 minuten krijgen jullie inzicht en praktische tips.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D',
+                        'lego-red': '#C41E3A',
+                        'lego-yellow': '#FFD700'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #FEFCF8 0%, #F5F1EB 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        .question-card {
+            transition: all 0.3s ease;
+        }
+
+        .answer-option {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .answer-option:hover {
+            transform: translateX(5px);
+            background-color: rgba(212, 165, 116, 0.1);
+        }
+
+        .answer-option.selected {
+            background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%);
+            color: white;
+        }
+
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+
+        .lego-brick {
+            width: 60px;
+            height: 40px;
+            border-radius: 6px;
+            position: relative;
+            margin: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lego-brick::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 8px;
+            background: inherit;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .lego-studs {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .lego-stud {
+            width: 12px;
+            height: 12px;
+            background: inherit;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .result-green { background: linear-gradient(135deg, #4A5D23 0%, #5d7a2d 100%); }
+        .result-orange { background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%); }
+        .result-red { background: linear-gradient(135deg, #C41E3A 0%, #dc2f47 100%); }
+    </style>
+</head>
+<body class="text-warm-gray">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-cream-white/90 backdrop-blur-md border-b border-warm-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="resources/logo-steentje.svg" alt="Steentje bij Steentje Logo" class="h-10 w-auto">
+                    <span class="font-playfair text-xl font-semibold text-warm-gray">Steentje bij Steentje</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                    <a href="over-ons.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                    <a href="werkwijze.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                    <a href="ervaringen.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                    <a href="blogs.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Blog</a>
+                    <a href="plan-sessie.html" class="btn-primary px-6 py-2 rounded-full text-white font-inter font-medium">Plan een sessie</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-cream-white border-t border-warm-terracotta/20" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                <a href="over-ons.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                <a href="werkwijze.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                <a href="ervaringen.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                <a href="blogs.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Blog</a>
+                <a href="plan-sessie.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Plan een sessie</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-cream-white to-soft-beige">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block px-4 py-2 bg-warm-terracotta/10 text-warm-terracotta rounded-full text-sm font-semibold mb-6">
+                ✨ Gratis RelatieCheck
+            </div>
+            <h1 class="font-playfair text-4xl lg:text-6xl font-bold text-warm-gray mb-6">
+                Waar staat jullie relatie nu?
+            </h1>
+            <p class="text-xl text-warm-gray/80 mb-8 leading-relaxed max-w-2xl mx-auto">
+                Ontdek in 3-5 minuten waar jullie relatie nu staat en krijg direct praktische tips
+                om jullie band te versterken.
+            </p>
+            <div class="flex justify-center gap-8 text-center mb-12">
+                <div>
+                    <div class="text-3xl font-bold text-warm-terracotta">10</div>
+                    <div class="text-sm text-warm-gray/70">vragen</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-warm-terracotta">3-5</div>
+                    <div class="text-sm text-warm-gray/70">minuten</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-warm-terracotta">100%</div>
+                    <div class="text-sm text-warm-gray/70">gratis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Container -->
+    <section class="py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between text-sm text-warm-gray/70 mb-2">
+                    <span>Voortgang</span>
+                    <span id="progress-text">0/10</span>
+                </div>
+                <div class="w-full bg-warm-gray/20 rounded-full h-3">
+                    <div id="progress-bar" class="progress-bar bg-gradient-to-r from-warm-terracotta to-soft-orange h-3 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Questions Container -->
+            <div id="questions-container">
+                <!-- Questions will be rendered here by JavaScript -->
+            </div>
+
+            <!-- Results Container (hidden initially) -->
+            <div id="results-container" class="hidden">
+                <!-- Results will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-gray text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="resources/logo-steentje.svg" alt="Steentje bij Steentje" class="h-10 w-auto filter brightness-0 invert">
+                        <span class="font-playfair text-xl font-semibold">Steentje bij Steentje</span>
+                    </div>
+                    <p class="text-white/80 mb-6 leading-relaxed">
+                        Professionele relatiecoaching met LEGO® Serious Play.
+                        Bouw aan je relatie, één steentje tegelijk.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-white/80">
+                        <p>📧 info@steentjebijsteentje.nl</p>
+                        <p>📞 06-12345678</p>
+                        <p>📍 Amsterdam, Nederland</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Snelle links</h3>
+                    <div class="space-y-2">
+                        <a href="over-ons.html" class="block text-white/80 hover:text-white transition-colors">Over ons</a>
+                        <a href="werkwijze.html" class="block text-white/80 hover:text-white transition-colors">Werkwijze</a>
+                        <a href="ervaringen.html" class="block text-white/80 hover:text-white transition-colors">Ervaringen</a>
+                        <a href="plan-sessie.html" class="block text-white/80 hover:text-white transition-colors">Plan een sessie</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+                <p class="mb-2">&copy; 2024 Steentje bij Steentje. Alle rechten voorbehouden.</p>
+                <p class="text-sm">LEGO® is een geregistreerd merk van de LEGO Group. Deze website is niet gesponsord of geautoriseerd door de LEGO Group.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Quiz Data
+        const questions = [
+            {
+                id: 1,
+                question: "Hoe vaak nemen jullie bewust tijd voor elkaar (zonder telefoon, tv of werk)?",
+                type: "scale",
+                options: [
+                    { text: "Bijna nooit", value: 1 },
+                    { text: "Soms", value: 2 },
+                    { text: "Regelmatig", value: 3 },
+                    { text: "Vaak", value: 4 },
+                    { text: "Heel vaak", value: 5 }
+                ]
+            },
+            {
+                id: 2,
+                question: "Als er een meningsverschil is, hoe gaan jullie daar meestal mee om?",
+                type: "scale",
+                options: [
+                    { text: "We vermijden het gesprek", value: 1 },
+                    { text: "We praten kort maar oppervlakkig", value: 2 },
+                    { text: "We proberen het uit te praten, maar dat lukt niet altijd", value: 3 },
+                    { text: "We bespreken het open en eerlijk", value: 4 },
+                    { text: "We zien meningsverschillen vaak als kans om dichterbij elkaar te komen", value: 5 }
+                ]
+            },
+            {
+                id: 3,
+                question: "Op een schaal van 1 (laag) tot 5 (hoog): hoeveel vertrouwen voel je in je partner?",
+                type: "scale",
+                options: [
+                    { text: "1 - Zeer laag", value: 1 },
+                    { text: "2 - Laag", value: 2 },
+                    { text: "3 - Gemiddeld", value: 3 },
+                    { text: "4 - Hoog", value: 4 },
+                    { text: "5 - Zeer hoog", value: 5 }
+                ]
+            },
+            {
+                id: 4,
+                question: "Op een schaal van 1 (laag) tot 5 (hoog): hoeveel plezier ervaar je in jullie relatie op dit moment?",
+                type: "scale",
+                options: [
+                    { text: "1 - Zeer weinig", value: 1 },
+                    { text: "2 - Weinig", value: 2 },
+                    { text: "3 - Gemiddeld", value: 3 },
+                    { text: "4 - Veel", value: 4 },
+                    { text: "5 - Zeer veel", value: 5 }
+                ]
+            },
+            {
+                id: 5,
+                question: "Hoe vaak doen jullie samen iets nieuws of creatiefs?",
+                type: "scale",
+                options: [
+                    { text: "Nooit", value: 1 },
+                    { text: "Zelden", value: 2 },
+                    { text: "Soms", value: 3 },
+                    { text: "Regelmatig", value: 4 },
+                    { text: "Vaak", value: 5 }
+                ]
+            },
+            {
+                id: 6,
+                question: "Voelen jullie je gehoord en begrepen door elkaar?",
+                type: "scale",
+                options: [
+                    { text: "Bijna nooit", value: 1 },
+                    { text: "Soms", value: 2 },
+                    { text: "Regelmatig", value: 3 },
+                    { text: "Vaak", value: 4 },
+                    { text: "Altijd", value: 5 }
+                ]
+            },
+            {
+                id: 7,
+                question: "Hoe tevreden ben je met de manier waarop jullie besluiten nemen als koppel?",
+                type: "scale",
+                options: [
+                    { text: "Zeer ontevreden", value: 1 },
+                    { text: "Ontevreden", value: 2 },
+                    { text: "Neutraal", value: 3 },
+                    { text: "Tevreden", value: 4 },
+                    { text: "Zeer tevreden", value: 5 }
+                ]
+            },
+            {
+                id: 8,
+                question: "Hoe goed kennen jullie elkaars dromen en toekomstplannen?",
+                type: "scale",
+                options: [
+                    { text: "Helemaal niet", value: 1 },
+                    { text: "Een beetje", value: 2 },
+                    { text: "Redelijk goed", value: 3 },
+                    { text: "Goed", value: 4 },
+                    { text: "Heel goed", value: 5 }
+                ]
+            },
+            {
+                id: 9,
+                question: "Hoe vaak lachen jullie samen?",
+                type: "scale",
+                options: [
+                    { text: "Bijna nooit", value: 1 },
+                    { text: "Soms", value: 2 },
+                    { text: "Regelmatig", value: 3 },
+                    { text: "Vaak", value: 4 },
+                    { text: "Dagelijks", value: 5 }
+                ]
+            },
+            {
+                id: 10,
+                question: "Hoe zou je de emotionele verbinding met je partner omschrijven?",
+                type: "scale",
+                options: [
+                    { text: "Zwak of afwezig", value: 1 },
+                    { text: "Fragiel", value: 2 },
+                    { text: "Aanwezig maar kan beter", value: 3 },
+                    { text: "Sterk", value: 4 },
+                    { text: "Zeer sterk en innig", value: 5 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+
+        function renderQuestion() {
+            const container = document.getElementById('questions-container');
+            const q = questions[currentQuestion];
+
+            container.innerHTML = `
+                <div class="question-card bg-white rounded-2xl shadow-xl p-8 mb-8">
+                    <div class="mb-6">
+                        <span class="text-sm font-semibold text-warm-terracotta">Vraag ${currentQuestion + 1} van ${questions.length}</span>
+                        <h2 class="font-playfair text-2xl lg:text-3xl font-bold text-warm-gray mt-2">
+                            ${q.question}
+                        </h2>
+                    </div>
+
+                    <div class="space-y-3">
+                        ${q.options.map((option, index) => `
+                            <div class="answer-option ${answers[q.id] === option.value ? 'selected' : ''} p-4 rounded-xl border-2 border-warm-gray/20"
+                                 onclick="selectAnswer(${q.id}, ${option.value})">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded-full border-2 ${answers[q.id] === option.value ? 'border-white bg-white' : 'border-warm-gray/40'} mr-4 flex items-center justify-center">
+                                        ${answers[q.id] === option.value ? '<div class="w-3 h-3 rounded-full bg-warm-terracotta"></div>' : ''}
+                                    </div>
+                                    <span class="font-inter font-medium">${option.text}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="flex justify-between mt-8">
+                        <button onclick="previousQuestion()"
+                                class="${currentQuestion === 0 ? 'invisible' : ''} px-6 py-3 rounded-full border-2 border-warm-terracotta text-warm-terracotta font-semibold hover:bg-warm-terracotta hover:text-white transition-all">
+                            ← Vorige
+                        </button>
+                        <button onclick="${currentQuestion === questions.length - 1 ? 'showResults()' : 'nextQuestion()'}"
+                                ${!answers[q.id] ? 'disabled' : ''}
+                                class="btn-primary px-6 py-3 rounded-full text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                            ${currentQuestion === questions.length - 1 ? 'Bekijk resultaat' : 'Volgende →'}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            updateProgress();
+        }
+
+        function selectAnswer(questionId, value) {
+            answers[questionId] = value;
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = `${currentQuestion + 1}/${questions.length}`;
+        }
+
+        function calculateScore() {
+            let total = 0;
+            for (let key in answers) {
+                total += answers[key];
+            }
+            return total;
+        }
+
+        function showResults() {
+            const score = calculateScore();
+            const maxScore = questions.length * 5;
+            const percentage = (score / maxScore) * 100;
+
+            let resultType, resultColor, resultTitle, resultDescription, resultTips, brickCount;
+
+            if (percentage >= 70) {
+                resultType = 'green';
+                resultColor = 'result-green';
+                resultTitle = '🟢 Sterke basis';
+                resultDescription = 'Jullie relatie staat stevig! Er is een gezonde basis van vertrouwen, communicatie en verbinding. Jullie investeren bewust in elkaar en dat levert veel positieve momenten op.';
+                resultTips = [
+                    'Blijf investeren in gezamenlijke momenten en nieuwe ervaringen',
+                    'Koester de openheid en eerlijkheid die jullie nu hebben',
+                    'Denk na over jullie gezamenlijke dromen voor de toekomst',
+                    'Een traject kan jullie helpen om nog dieper verbinding te maken'
+                ];
+                brickCount = 10;
+            } else if (percentage >= 40) {
+                resultType = 'orange';
+                resultColor = 'result-orange';
+                resultTitle = '🟠 Opbouwfase';
+                resultDescription = 'Jullie relatie heeft veel sterke kanten, maar er zijn ook uitdagingen die vragen om bewuste aandacht. Er is ruimte voor groei in communicatie, verbinding of het maken van tijd voor elkaar.';
+                resultTips = [
+                    'Plan bewust quality time met elkaar zonder afleiding',
+                    'Werk aan openere en eerlijkere communicatie',
+                    'Verken samen nieuwe activiteiten of interesses',
+                    'Ons traject kan jullie helpen deze uitdagingen om te zetten in kansen'
+                ];
+                brickCount = 6;
+            } else {
+                resultType = 'red';
+                resultColor = 'result-red';
+                resultTitle = '🔴 Kwetsbaar fundament';
+                resultDescription = 'De basis van jullie relatie vraagt om aandacht. Er zijn meerdere gebieden waar jullie tegen uitdagingen aanlopen. Dit is geen reden om op te geven - er is juist veel te winnen!';
+                resultTips = [
+                    'Herken dat jullie hulp nodig hebben en dat is oké',
+                    'Begin met kleine stappen: één gesprek, één moment samen',
+                    'Zoek professionele begeleiding om jullie verder te helpen',
+                    'Steentje bij Steentje helpt jullie stap voor stap een stevig fundament te leggen'
+                ];
+                brickCount = 3;
+            }
+
+            document.getElementById('questions-container').classList.add('hidden');
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.classList.remove('hidden');
+
+            resultsContainer.innerHTML = `
+                <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                    <div class="text-center mb-8">
+                        <div class="inline-block px-4 py-2 bg-warm-terracotta/10 text-warm-terracotta rounded-full text-sm font-semibold mb-4">
+                            ✨ Jullie resultaat
+                        </div>
+                        <h2 class="font-playfair text-3xl lg:text-4xl font-bold text-warm-gray mb-4">
+                            ${resultTitle}
+                        </h2>
+                        <div class="text-5xl font-bold ${resultColor.includes('green') ? 'text-deep-green' : resultColor.includes('orange') ? 'text-warm-terracotta' : 'text-lego-red'} mb-2">
+                            ${score}/${maxScore}
+                        </div>
+                        <p class="text-warm-gray/70">punten</p>
+                    </div>
+
+                    <!-- LEGO Visualization -->
+                    <div class="flex justify-center items-end mb-8 p-6 bg-soft-beige rounded-xl" style="min-height: 200px;">
+                        <div class="flex items-end gap-2">
+                            ${Array.from({length: brickCount}, (_, i) => `
+                                <div class="lego-brick ${resultColor}" style="animation: buildBrick 0.5s ease ${i * 0.1}s both;">
+                                    <div class="lego-studs">
+                                        <div class="lego-stud"></div>
+                                        <div class="lego-stud"></div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <style>
+                        @keyframes buildBrick {
+                            from {
+                                opacity: 0;
+                                transform: translateY(20px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                    </style>
+
+                    <div class="prose max-w-none mb-8">
+                        <p class="text-lg text-warm-gray/80 leading-relaxed">
+                            ${resultDescription}
+                        </p>
+                    </div>
+
+                    <div class="bg-soft-beige rounded-xl p-6 mb-8">
+                        <h3 class="font-playfair text-xl font-bold text-warm-gray mb-4">
+                            💡 Onze tips voor jullie
+                        </h3>
+                        <ul class="space-y-3">
+                            ${resultTips.map(tip => `
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-warm-terracotta mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-warm-gray/80">${tip}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-warm-terracotta to-soft-orange rounded-xl p-8 text-center text-white">
+                        <h3 class="font-playfair text-2xl font-bold mb-4">
+                            Klaar voor de volgende stap?
+                        </h3>
+                        <p class="text-white/90 mb-6">
+                            Ontdek hoe ons LEGO® Serious Play traject jullie kan helpen om jullie relatie verder te versterken.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="plan-sessie.html" class="bg-white text-warm-terracotta px-8 py-4 rounded-full font-semibold hover:bg-cream-white transition-all inline-flex items-center justify-center">
+                                Plan een kennismakingsgesprek
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <a href="werkwijze.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-warm-terracotta transition-all inline-flex items-center justify-center">
+                                Meer over onze werkwijze
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button onclick="resetQuiz()" class="text-warm-terracotta hover:text-warm-gray transition-colors font-semibold">
+                            ↻ Doe de test opnieuw
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            answers = {};
+            document.getElementById('results-container').classList.add('hidden');
+            document.getElementById('questions-container').classList.remove('hidden');
+            renderQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize quiz
+        renderQuestion();
+    </script>
+</body>
+</html>

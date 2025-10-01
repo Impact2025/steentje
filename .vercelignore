@@ -1,0 +1,13 @@
+node_modules
+.git
+*.md
+design.md
+outline.md
+interaction.md
+test-*.html
+index-new.html
+index-minimal.html
+index-final.html
+index-optimized.html
+clean-html.py
+voorbeeld-ai-artikel.html

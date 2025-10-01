@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steentje bij Steentje - Bouw aan je relatie met LEGO® Serious Play</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #FEFCF8 0%, #F5F1EB 100%);
+            font-family: Arial, sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+    </style>
+</head>
+<body class="text-warm-gray">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-cream-white/90 backdrop-blur-md border-b border-warm-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-warm-terracotta rounded-full flex items-center justify-center text-white font-bold">
+                        SBS
+                    </div>
+                    <span class="text-xl font-semibold text-warm-gray">Steentje bij Steentje</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                    <a href="over-ons.html" class="font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                    <a href="werkwijze.html" class="font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                    <a href="relatiecheck.html" class="font-medium hover:text-warm-terracotta transition-colors">RelatieCheck</a>
+                    <a href="plan-sessie.html" class="btn-primary px-6 py-2 rounded-full text-white font-medium">Plan een sessie</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl lg:text-6xl font-bold text-warm-gray mb-6">
+                Steentje bij Steentje
+            </h1>
+
+            <h2 class="text-3xl lg:text-4xl font-semibold mb-6 bg-gradient-to-r from-warm-terracotta to-soft-orange bg-clip-text text-transparent">
+                Bouw aan je relatie, één steentje tegelijk.
+            </h2>
+
+            <p class="text-lg mb-8 text-warm-gray/80 leading-relaxed max-w-2xl mx-auto">
+                Versterk je relatie op een creatieve manier met LEGO® Serious Play.
+                Ontdek hoe bouwen, vertellen en verbinden jullie band kan verdiepen.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="plan-sessie.html" class="btn-primary px-8 py-4 rounded-full text-white font-semibold text-lg">
+                    Plan een sessie →
+                </a>
+                <a href="relatiecheck.html" class="border-2 border-warm-terracotta text-warm-terracotta px-8 py-4 rounded-full font-semibold text-lg hover:bg-warm-terracotta hover:text-white transition-all">
+                    Doe de RelatieCheck
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-cream-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-warm-gray mb-8">
+                Bouw aan jullie toekomst, samen
+            </h2>
+            <p class="text-xl text-warm-gray/80 leading-relaxed mb-12">
+                Steentje bij Steentje helpt stellen om op een creatieve manier hun communicatie en verbinding te versterken.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-soft-beige p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-warm-terracotta rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        💬
+                    </div>
+                    <h3 class="text-2xl font-semibold text-warm-gray mb-4">Communicatie</h3>
+                    <p class="text-warm-gray/70">Leer elkaar beter te begrijpen door middel van creatieve expressie</p>
+                </div>
+
+                <div class="bg-soft-beige p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-deep-green rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        ⚡
+                    </div>
+                    <h3 class="text-2xl font-semibold text-warm-gray mb-4">Verbinding</h3>
+                    <p class="text-warm-gray/70">Herstel en verdiep de emotionele band tussen jou en je partner</p>
+                </div>
+
+                <div class="bg-soft-beige p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-soft-orange rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl">
+                        🌱
+                    </div>
+                    <h3 class="text-2xl font-semibold text-warm-gray mb-4">Groei</h3>
+                    <p class="text-warm-gray/70">Ontwikkel samen nieuwe perspectieven en bouw aan de toekomst</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-warm-terracotta to-soft-orange">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                Zet de eerste stap
+            </h2>
+            <p class="text-xl text-white/90 mb-12 leading-relaxed">
+                Bouw aan jullie relatie, één steentje tegelijk. Plan vandaag nog een vrijblijvende kennismaking.
+            </p>
+
+            <a href="plan-sessie.html" class="bg-white text-warm-terracotta px-8 py-4 rounded-full font-bold text-lg hover:bg-cream-white transition-all inline-block">
+                Plan een sessie →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Steentje bij Steentje</h3>
+                    <p class="text-white/80 leading-relaxed">
+                        Professionele relatiecoaching met LEGO® Serious Play.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-white/80">
+                        <p>📧 info@steentjebijsteentje.nl</p>
+                        <p>📞 06-12345678</p>
+                        <p>📍 Amsterdam, Nederland</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Snelle links</h3>
+                    <div class="space-y-2">
+                        <a href="over-ons.html" class="block text-white/80 hover:text-white">Over ons</a>
+                        <a href="werkwijze.html" class="block text-white/80 hover:text-white">Werkwijze</a>
+                        <a href="relatiecheck.html" class="block text-white/80 hover:text-white">RelatieCheck</a>
+                        <a href="plan-sessie.html" class="block text-white/80 hover:text-white">Plan een sessie</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
+                <p>&copy; 2024 Steentje bij Steentje. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu
+        console.log('✅ Page loaded successfully');
+    </script>
+</body>
+</html>

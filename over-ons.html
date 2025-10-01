@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over ons - Steentje bij Steentje</title>
+    <meta name="description" content="Leer meer over onze coach en de visie achter Steentje bij Steentje. Ontdek waarom LEGO® Serious Play werkt voor relatiecoaching.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D',
+                        'lego-red': '#C41E3A',
+                        'lego-yellow': '#FFD700'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #FEFCF8 0%, #F5F1EB 100%);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+    </style>
+</head>
+<body class="text-warm-gray">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-cream-white/90 backdrop-blur-md border-b border-warm-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="resources/logo-steentje.png" alt="Steentje bij Steentje Logo" class="h-10 w-auto">
+                    <span class="font-playfair text-xl font-semibold text-warm-gray">Steentje bij Steentje</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                    <a href="over-ons.html" class="nav-link font-inter font-medium text-warm-terracotta">Over ons</a>
+                    <a href="werkwijze.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                    <a href="ervaringen.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                    <a href="plan-sessie.html" class="btn-primary px-6 py-2 rounded-full text-white font-inter font-medium">Plan een sessie</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-cream-white border-t border-warm-terracotta/20" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                <a href="over-ons.html" class="block py-2 font-inter font-medium text-warm-terracotta">Over ons</a>
+                <a href="werkwijze.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                <a href="ervaringen.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                <a href="plan-sessie.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Plan een sessie</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-soft-beige to-cream-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center reveal">
+                <h1 class="font-playfair text-5xl lg:text-6xl font-bold text-warm-gray mb-6">
+                    Over ons
+                </h1>
+                <p class="text-xl text-warm-gray/80 max-w-3xl mx-auto leading-relaxed">
+                    Ontdek het verhaal achter Steentje bij Steentje en waarom we geloven in de kracht van LEGO® Serious Play voor relatiecoaching.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <img src="resources/coach-portrait.jpg" alt="Coach van Steentje bij Steentje" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                </div>
+                
+                <div class="reveal">
+                    <h2 class="font-playfair text-4xl font-bold text-warm-gray mb-8">
+                        Mijn verhaal
+                    </h2>
+                    
+                    <div class="space-y-6 text-lg text-warm-gray/80 leading-relaxed">
+                        <p>
+                            Als relatiecoach met meer dan 10 jaar ervaring heb ik gezien hoe traditionele gesprekstherapie soms vastloopt. 
+                            Koppels vinden het moeilijk om hun ware gevoelens onder woorden te brengen, of ze blijven hangen in 
+                            herhalende communicatiepatronen.
+                        </p>
+                        
+                        <p>
+                            Toen ik LEGO® Serious Play ontdekte, was het als een eye-opener. De speelse, creatieve aanpak maakte 
+                            dat mensen op een dieper niveau met elkaar in contact kwamen. De blokjes fungeren als een veilige 
+                            brug tussen wat we voelen en wat we kunnen uitdrukken.
+                        </p>
+                        
+                        <p>
+                            Wat mij betreft is elke relatie uniek en verdient een persoonlijke aanpak. Door het combineren van 
+                            mijn jarenlange ervaring in relatietherapie met deze innovatieve methode, kan ik koppels helpen 
+                            om op een ontspannen maar diepgaande manier te werken aan hun verbinding.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="plan-sessie.html" class="btn-primary px-8 py-4 rounded-full text-white font-inter font-semibold text-lg inline-flex items-center">
+                            Plan een kennismaking
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="py-20 bg-soft-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-warm-gray mb-6">
+                    Visie & Missie
+                </h2>
+                <p class="text-xl text-warm-gray/80 max-w-3xl mx-auto">
+                    Onze visie op sterke relaties en hoe we die realiseren
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal hover-lift bg-cream-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-16 h-16 bg-warm-terracotta rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-warm-gray mb-4 text-center">Onze Visie</h3>
+                    <p class="text-warm-gray/70 leading-relaxed">
+                        Wij geloven dat elke relatie het potentieel heeft om te groeien en te bloeien. Door middel van 
+                        creatieve expressie en speelse communicatie kunnen koppels diepere lagen van verbinding ontdekken 
+                        en hun liefdesband versterken. Een sterke relatie is het fundament voor een gelukkig leven.
+                    </p>
+                </div>
+                
+                <div class="reveal hover-lift bg-cream-white p-8 rounded-2xl shadow-lg">
+                    <div class="w-16 h-16 bg-deep-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-warm-gray mb-4 text-center">Onze Missie</h3>
+                    <p class="text-warm-gray/70 leading-relaxed">
+                        We helpen koppels om op een innovatieve, toegankelijke manier te werken aan hun relatie. 
+                        Door LEGO® Serious Play maken we diepgaande gesprekken mogelijk op een speelse, ontspannen manier. 
+                        Onze missie is om 1000+ koppels te helpen hun relatie naar een hoger niveau te tillen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why LEGO Works -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-warm-gray mb-6">
+                    Waarom LEGO® Serious Play werkt
+                </h2>
+                <p class="text-xl text-warm-gray/80 max-w-3xl mx-auto">
+                    De wetenschap achter onze succesvolle aanpak
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="reveal hover-lift text-center">
+                    <div class="w-20 h-20 bg-warm-terracotta rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-warm-gray mb-4">Hand-Brein Connectie</h3>
+                    <p class="text-warm-gray/70 leading-relaxed">
+                        Wetenschappelijk onderzoek toont aan dat onze handen direct verbonden zijn met onze hersenen. 
+                        Door te bouwen activeren we creatieve gebieden die in traditionele gesprekken niet bereikt worden.
+                    </p>
+                </div>
+                
+                <div class="reveal hover-lift text-center">
+                    <div class="w-20 h-20 bg-deep-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-warm-gray mb-4">Tactiele Expressie</h3>
+                    <p class="text-warm-gray/70 leading-relaxed">
+                        LEGO blokjes bieden een tastbare manier om abstracte emoties en gedachten uit te drukken. 
+                        Dit maakt moeilijke onderwerpen bespreekbaar en concreet.
+                    </p>
+                </div>
+                
+                <div class="reveal hover-lift text-center">
+                    <div class="w-20 h-20 bg-soft-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-warm-gray mb-4">Veilige Context</h3>
+                    <p class="text-warm-gray/70 leading-relaxed">
+                        De speelse aarde van LEGO creëert een veilige omgeving waarin mensen zich vrijer voelen 
+                        om te experimenteren, fouten te maken en te groeien.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 reveal">
+                <div class="bg-soft-beige p-8 rounded-2xl">
+                    <h3 class="font-playfair text-2xl font-bold text-warm-gray mb-6 text-center">Wetenschappelijke Onderbouwing</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-playfair text-lg font-semibold text-warm-gray mb-3">Neurologisch Onderzoek</h4>
+                            <p class="text-warm-gray/70 mb-4">
+                                Studies van MIT en andere toonaangevende instituten hebben aangetoond dat handbewegingen 
+                                direct invloed hebben op onze cognitieve processen en emotionele verwerking.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-playfair text-lg font-semibold text-warm-gray mb-3">Klinische Ervaring</h4>
+                            <p class="text-warm-gray/70 mb-4">
+                                Meer dan 15 jaar ervaring in therapie en coaching heeft bewezen dat creatieve methoden 
+                                vaak sneller en duurzamer werken dan traditionele gesprekstherapie.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Training -->
+    <section class="py-20 bg-soft-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-warm-gray mb-6">
+                    Kwalificaties & Opleiding
+                </h2>
+                <p class="text-xl text-warm-gray/80 max-w-3xl mx-auto">
+                    Onze expertise gebouwd op jarenlange ervaring en continue ontwikkeling
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal hover-lift bg-cream-white p-6 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-warm-terracotta rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold text-warm-gray mb-2">Gecertificeerd Relatiecoach</h3>
+                    <p class="text-warm-gray/60 text-sm">Nederlandse Vereniging voor Relatie- en Gezinstherapie</p>
+                </div>
+                
+                <div class="reveal hover-lift bg-cream-white p-6 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-deep-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold text-warm-gray mb-2">LEGO® Serious Play Facilitator</h3>
+                    <p class="text-warm-gray/60 text-sm">Association of Master Trainers</p>
+                </div>
+                
+                <div class="reveal hover-lift bg-cream-white p-6 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-soft-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold text-warm-gray mb-2">MSc Psychologie</h3>
+                    <p class="text-warm-gray/60 text-sm">Universiteit van Amsterdam</p>
+                </div>
+                
+                <div class="reveal hover-lift bg-cream-white p-6 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-lego-red rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold text-warm-gray mb-2">Emotionally Focused Therapy</h3>
+                    <p class="text-warm-gray/60 text-sm">ICEEFT Certified Therapist</p>
+                </div>
+                
+                <div class="reveal hover-lift bg-cream-white p-6 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-warm-terracotta rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold text-warm-gray mb-2">Mindfulness Based Coaching</h3>
+                    <p class="text-warm-gray/60 text-sm">Center for Mindfulness</p>
+                </div>
+                
+                <div class="reveal hover-lift bg-cream-white p-6 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-deep-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-playfair text-lg font-semibold text-warm-gray mb-2">NLP Master Practitioner</h3>
+                    <p class="text-warm-gray/60 text-sm">Society of NLP</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-warm-terracotta to-soft-orange">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-white mb-6">
+                    Klaar om te starten?
+                </h2>
+                <p class="text-xl text-white/90 mb-12 leading-relaxed">
+                    Neem de eerste stap naar een sterkere relatie. Plan een vrijblijvende kennismaking en ontdek 
+                    hoe LEGO® Serious Play jullie kan helpen.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="plan-sessie.html" class="bg-white text-warm-terracotta px-8 py-4 rounded-full font-inter font-bold text-lg hover:bg-cream-white transition-all duration-300 inline-flex items-center">
+                        Plan een kennismaking
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </a>
+                    
+                    <a href="werkwijze.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-inter font-semibold text-lg hover:bg-white hover:text-warm-terracotta transition-all duration-300 inline-flex items-center">
+                        Ontdek onze werkwijze
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="resources/logo-steentje.png" alt="Steentje bij Steentje" class="h-10 w-auto filter brightness-0 invert">
+                        <span class="font-playfair text-xl font-semibold">Steentje bij Steentje</span>
+                    </div>
+                    <p class="text-white/80 mb-6 leading-relaxed">
+                        Professionele relatiecoaching met LEGO® Serious Play. 
+                        Bouw aan je relatie, één steentje tegelijk.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white/60 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-white/80">
+                        <p>📧 info@steentjebijsteentje.nl</p>
+                        <p>📞 06-12345678</p>
+                        <p>📍 Amsterdam, Nederland</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Snelle links</h3>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-white/80 hover:text-white transition-colors">Home</a>
+                        <a href="werkwijze.html" class="block text-white/80 hover:text-white transition-colors">Werkwijze</a>
+                        <a href="ervaringen.html" class="block text-white/80 hover:text-white transition-colors">Ervaringen</a>
+                        <a href="plan-sessie.html" class="block text-white/80 hover:text-white transition-colors">Plan een sessie</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+                <p class="mb-2">&copy; 2024 Steentje bij Steentje. Alle rechten voorbehouden.</p>
+                <p class="text-sm">LEGO® is een geregistreerd merk van de LEGO Group. Deze website is niet gesponsord of geautoriseerd door de LEGO Group.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple reveal animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            revealElements.forEach(element => {
+                revealObserver.observe(element);
+            });
+            
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

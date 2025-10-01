@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Blog - Steentje bij Steentje</title>
+    <meta name="description" id="page-description" content="Lees onze blog over relatiecoaching en LEGO® Serious Play">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" id="og-title" content="Blog - Steentje bij Steentje">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:image" id="og-image" content="">
+    <meta property="og:url" id="og-url" content="">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitter-title" content="">
+    <meta name="twitter:description" id="twitter-description" content="">
+    <meta name="twitter:image" id="twitter-image" content="">
+
+    <!-- Keywords -->
+    <meta name="keywords" id="page-keywords" content="relatiecoaching, LEGO Serious Play, relatietherapie">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #FEFCF8 0%, #F5F1EB 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8B8680;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+            color: rgba(139, 134, 128, 0.9);
+        }
+
+        .blog-content strong {
+            font-weight: 600;
+            color: #8B8680;
+        }
+
+        .blog-content a {
+            color: #D4A574;
+            text-decoration: underline;
+        }
+
+        .blog-content a:hover {
+            color: #E8B86D;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json" id="schema-data">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "",
+      "image": "",
+      "datePublished": "",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Steentje bij Steentje",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "resources/logo-steentje.png"
+        }
+      }
+    }
+    </script>
+</head>
+<body class="text-warm-gray">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-cream-white/90 backdrop-blur-md border-b border-warm-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="resources/logo-steentje.png" alt="Steentje bij Steentje Logo" class="h-10 w-auto">
+                    <span class="font-playfair text-xl font-semibold text-warm-gray">Steentje bij Steentje</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                    <a href="over-ons.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                    <a href="werkwijze.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                    <a href="ervaringen.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                    <a href="blogs.html" class="nav-link font-inter font-medium text-warm-terracotta">Blog</a>
+                    <a href="plan-sessie.html" class="btn-primary px-6 py-2 rounded-full text-white font-inter font-medium">Plan een sessie</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-cream-white border-t border-warm-terracotta/20" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                <a href="over-ons.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                <a href="werkwijze.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                <a href="ervaringen.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                <a href="blogs.html" class="block py-2 font-inter font-medium text-warm-terracotta">Blog</a>
+                <a href="plan-sessie.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Plan een sessie</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content -->
+    <article class="pt-32 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Back button -->
+            <a href="blogs.html" class="inline-flex items-center text-warm-terracotta hover:text-soft-orange mb-8 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Terug naar blog overzicht
+            </a>
+
+            <!-- Category badge -->
+            <div class="mb-6">
+                <span id="blog-category" class="px-4 py-2 bg-warm-terracotta text-white rounded-full text-sm font-semibold">
+                    <!-- Category loaded dynamically -->
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h1 id="blog-title" class="font-playfair text-4xl lg:text-5xl font-bold text-warm-gray mb-6">
+                <!-- Title loaded dynamically -->
+            </h1>
+
+            <!-- Meta info -->
+            <div class="flex flex-wrap items-center gap-4 text-warm-gray/70 mb-8 pb-8 border-b border-warm-terracotta/20">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <span id="blog-author"><!-- Author loaded dynamically --></span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span id="blog-date"><!-- Date loaded dynamically --></span>
+                </div>
+            </div>
+
+            <!-- Featured image -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-2xl">
+                <img id="blog-image" src="" alt="" class="w-full h-auto">
+            </div>
+
+            <!-- Content -->
+            <div id="blog-content" class="blog-content text-lg">
+                <!-- Content loaded dynamically -->
+            </div>
+
+            <!-- Tags -->
+            <div id="blog-tags" class="flex flex-wrap gap-2 mt-12 pt-8 border-t border-warm-terracotta/20">
+                <!-- Tags loaded dynamically -->
+            </div>
+        </div>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-soft-beige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-playfair text-3xl font-bold text-warm-gray mb-8 text-center">
+                Meer artikelen
+            </h2>
+            <div id="related-blogs" class="grid md:grid-cols-3 gap-8">
+                <!-- Related blogs loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-warm-terracotta to-soft-orange">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-white mb-6">
+                Klaar om te beginnen?
+            </h2>
+            <p class="text-xl text-white/90 mb-12 leading-relaxed">
+                Bouw aan jullie relatie, één steentje tegelijk. Plan vandaag nog een vrijblijvende kennismaking.
+            </p>
+            <a href="plan-sessie.html" class="bg-white text-warm-terracotta px-8 py-4 rounded-full font-inter font-bold text-lg hover:bg-cream-white transition-all duration-300 inline-flex items-center">
+                Plan een sessie
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="resources/logo-steentje.png" alt="Steentje bij Steentje" class="h-10 w-auto filter brightness-0 invert">
+                        <span class="font-playfair text-xl font-semibold">Steentje bij Steentje</span>
+                    </div>
+                    <p class="text-white/80 mb-6 leading-relaxed">
+                        Professionele relatiecoaching met LEGO® Serious Play.
+                        Bouw aan je relatie, één steentje tegelijk.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-white/80">
+                        <p>📧 info@steentjebijsteentje.nl</p>
+                        <p>📞 06-12345678</p>
+                        <p>📍 Amsterdam, Nederland</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Snelle links</h3>
+                    <div class="space-y-2">
+                        <a href="over-ons.html" class="block text-white/80 hover:text-white transition-colors">Over ons</a>
+                        <a href="werkwijze.html" class="block text-white/80 hover:text-white transition-colors">Werkwijze</a>
+                        <a href="ervaringen.html" class="block text-white/80 hover:text-white transition-colors">Ervaringen</a>
+                        <a href="plan-sessie.html" class="block text-white/80 hover:text-white transition-colors">Plan een sessie</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+                <p>&copy; 2024 Steentje bij Steentje. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="blog-detail.js"></script>
+</body>
+</html>
