@@ -5,7 +5,7 @@ let currentFilter = 'all';
 // Load blogs from Supabase
 async function loadBlogs() {
     try {
-        const { data, error } = await supabaseClient
+        const { data, error } = await window.supabaseClient
             .from('blogs')
             .select('*')
             .order('date', { ascending: false });

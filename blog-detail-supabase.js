@@ -9,7 +9,7 @@ async function loadBlogDetail() {
     }
 
     try {
-        const { data, error } = await supabaseClient
+        const { data, error } = await window.supabaseClient
             .from('blogs')
             .select('*')
             .eq('slug', slug)

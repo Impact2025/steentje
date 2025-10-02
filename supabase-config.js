@@ -1,11 +1,22 @@
 // Supabase Configuration
-// Vervang deze waarden met jouw eigen Supabase credentials
+console.log('🔧 Loading supabase-config.js...');
 
-const SUPABASE_URL = 'JOUW_SUPABASE_URL_HIER'; // bijv: https://abc123.supabase.co
-const SUPABASE_ANON_KEY = 'JOUW_SUPABASE_ANON_KEY_HIER'; // lange string
+const SUPABASE_URL = 'https://ulrmvrinqjtkcdmqfoei.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVscm12cmlucWp0a2NkbXFmb2VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkzMjE2OTYsImV4cCI6MjA3NDg5NzY5Nn0.RD9bNOg4j1-gIV00bUILb8dhviQqPPoxRutGpDrHXko';
 
-// Supabase client initialiseren
-const { createClient } = supabase;
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Check if supabase library is loaded
+if (typeof supabase === 'undefined') {
+    console.error('❌ FATAL: supabase library not loaded! Make sure the CDN script loads before this file.');
+    alert('Supabase library niet geladen. Check de browser console.');
+} else {
+    console.log('✅ Supabase library found');
 
-console.log('✅ Supabase configured');
+    // Supabase client initialiseren
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    console.log('✅ Supabase client created:', supabaseClient);
+
+    // Make it globally available
+    window.supabaseClient = supabaseClient;
+}
