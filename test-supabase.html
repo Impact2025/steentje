@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supabase Test</title>
+</head>
+<body>
+    <h1>Supabase Connection Test</h1>
+    <div id="output"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
+    <script>
+        const output = document.getElementById('output');
+
+        // Test 1: Check if supabase is loaded
+        output.innerHTML += '<p>1. Supabase library loaded: ' + (typeof supabase !== 'undefined' ? '✅ YES' : '❌ NO') + '</p>';
+
+        if (typeof supabase !== 'undefined') {
+            // Test 2: Create client
+            try {
+                const SUPABASE_URL = 'https://ulrmvrinqjtkcdmqfoei.supabase.co';
+                const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVscm12cmlucWp0a2NkbXFmb2VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkzMjE2OTYsImV4cCI6MjA3NDg5NzY5Nn0.RD9bNOg4j1-gIV00bUILb8dhviQqPPoxRutGpDrHXko';
+
+                const { createClient } = supabase;
+                const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+                output.innerHTML += '<p>2. Supabase client created: ✅ YES</p>';
+
+                // Test 3: Fetch blogs
+                supabaseClient
+                    .from('blogs')
+                    .select('*')
+                    .then(({ data, error }) => {
+                        if (error) {
+                            output.innerHTML += '<p>3. Fetch blogs: ❌ ERROR - ' + error.message + '</p>';
+                        } else {
+                            output.innerHTML += '<p>3. Fetch blogs: ✅ SUCCESS - Found ' + data.length + ' blogs</p>';
+                            output.innerHTML += '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                        }
+                    });
+            } catch (e) {
+                output.innerHTML += '<p>2. Supabase client created: ❌ ERROR - ' + e.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>
