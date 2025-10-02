@@ -1,0 +1,16 @@
+Placeholder file voor resources folder
+
+Deze folder bevat alle afbeeldingen en assets voor de website.
+
+Benodigde afbeeldingen:
+- logo-steentje.png (logo)
+- hero-lego-couple.jpg (hero sectie)
+- step1-bouwen.jpg (stap 1)
+- step2-vertellen.jpg (stap 2)
+- step3-verbinden.jpg (stap 3)
+- lego-blocks.jpg (LEGO blokjes)
+- testimonial-1.jpg (Sarah & Mark)
+- testimonial-2.jpg (Ahmed & Lisa)
+- testimonial-3.jpg (Jan & Maria)
+
+Blog afbeeldingen worden opgeslagen in: resources/blog/
