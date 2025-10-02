@@ -5,6 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steentje bij Steentje - Bouw aan je relatie met LEGO® Serious Play</title>
     <meta name="description" content="Versterk je relatie op een creatieve manier met LEGO® Serious Play. Professionele relatiecoaching die werkt. Plan vandaag nog een sessie.">
+    <meta name="keywords" content="relatiecoaching, LEGO Serious Play, relatietherapie, koppelcoaching, relatie versterken, communicatie in relaties, relatietips, Amsterdam, coaching voor koppels">
+    <link rel="canonical" href="https://steentjebijsteentje.nl/">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://steentjebijsteentje.nl/">
+    <meta property="og:title" content="Steentje bij Steentje - Bouw aan je relatie met LEGO® Serious Play">
+    <meta property="og:description" content="Versterk je relatie op een creatieve manier met LEGO® Serious Play. Professionele relatiecoaching die werkt. Plan vandaag nog een sessie.">
+    <meta property="og:image" content="https://steentjebijsteentje.nl/resources/hero-lego-couple.jpg">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:site_name" content="Steentje bij Steentje">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://steentjebijsteentje.nl/">
+    <meta name="twitter:title" content="Steentje bij Steentje - Bouw aan je relatie met LEGO® Serious Play">
+    <meta name="twitter:description" content="Versterk je relatie op een creatieve manier met LEGO® Serious Play. Professionele relatiecoaching die werkt.">
+    <meta name="twitter:image" content="https://steentjebijsteentje.nl/resources/hero-lego-couple.jpg">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Steentje bij Steentje",
+      "description": "Professionele relatiecoaching met LEGO® Serious Play voor koppels in Amsterdam",
+      "url": "https://steentjebijsteentje.nl",
+      "logo": "https://steentjebijsteentje.nl/resources/Logo Steentje bij Steentje.png",
+      "image": "https://steentjebijsteentje.nl/resources/hero-lego-couple.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Amsterdam",
+        "addressCountry": "NL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "52.3676",
+        "longitude": "4.9041"
+      },
+      "priceRange": "€€",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "27"
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "telephone": "+31-6-12345678",
+      "email": "info@steentjebijsteentje.nl",
+      "sameAs": [
+        "https://www.linkedin.com/company/steentjebijsteentje",
+        "https://www.instagram.com/steentjebijsteentje"
+      ]
+    }
+    </script>
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -132,6 +186,16 @@
             transform: translateY(-10px) !important;
         }
 
+        /* Mobile: Only 2 blogs, stacked vertically */
+        @media (max-width: 768px) {
+            #homepage-blog-grid {
+                grid-template-columns: 1fr !important;
+            }
+            #homepage-blog-grid .blog-card-visible:nth-child(n+3) {
+                display: none !important;
+            }
+        }
+
         .blog-card-header-orange {
             background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%) !important;
             height: 200px !important;
@@ -187,7 +251,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
-                    <img src="resources/logo-steentje.svg" alt="Steentje bij Steentje Logo" class="h-10 w-auto">
+                    <img src="resources/Logo Steentje bij Steentje.png" alt="Steentje bij Steentje Logo" class="h-10 w-auto">
                     <span class="font-playfair text-xl font-semibold text-warm-gray">Steentje bij Steentje</span>
                 </div>
                 
@@ -195,7 +259,7 @@
                     <a href="#home" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
                     <a href="over-ons.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
                     <a href="werkwijze.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
-                    <a href="relatiecheck.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">RelatieCheck</a>
+                    <a href="prijzen.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Prijzen</a>
                     <a href="ervaringen.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
                     <a href="blogs.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Blog</a>
                     <a href="plan-sessie.html" class="btn-primary px-6 py-2 rounded-full text-white font-inter font-medium">Plan een sessie</a>
@@ -216,7 +280,7 @@
                 <a href="#home" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
                 <a href="over-ons.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
                 <a href="werkwijze.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
-                <a href="relatiecheck.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">RelatieCheck</a>
+                <a href="prijzen.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Prijzen</a>
                 <a href="ervaringen.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
                 <a href="blogs.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Blog</a>
                 <a href="plan-sessie.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Plan een sessie</a>
@@ -241,7 +305,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
             <div class="text-center lg:text-left reveal">
                 <div class="flex items-center justify-center lg:justify-start mb-6">
-                    <img src="resources/logo-steentje.svg" alt="Steentje bij Steentje" class="h-16 w-auto mr-4">
+                    <img src="resources/Logo Steentje bij Steentje.png" alt="Steentje bij Steentje" class="h-16 w-auto mr-4">
                     <h1 class="font-playfair text-4xl lg:text-5xl font-bold text-warm-gray">Steentje bij Steentje</h1>
                 </div>
                 
@@ -742,7 +806,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="resources/logo-steentje.svg" alt="Steentje bij Steentje" class="h-10 w-auto filter brightness-0 invert">
+                        <img src="resources/Logo Steentje bij Steentje.png" alt="Steentje bij Steentje" class="h-10 w-auto filter brightness-0 invert">
                         <span class="font-playfair text-xl font-semibold">Steentje bij Steentje</span>
                     </div>
                     <p class="text-white/80 mb-6 leading-relaxed">
@@ -795,6 +859,9 @@
         </div>
     </footer>
 
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.js"></script>
+    <script src="supabase-config.js"></script>
     <script src="main-safe.js"></script>
 </body>
 </html>
