@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(where node)",
+      "Bash(npx http-server:*)",
+      "Bash(timeout:*)",
+      "Bash(curl -s http://localhost:8000/admin-blog.html)",
+      "Bash(curl:*)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(npm install:*)",
+      "Bash(vercel:*)",
+      "WebFetch(domain:steentje.vercel.app)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(where python)",
+      "Bash(where gh)",
+      "Bash(powershell:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
