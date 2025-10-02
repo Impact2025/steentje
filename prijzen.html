@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prijzen - Steentje bij Steentje</title>
+    <meta name="description" content="Kies het pakket dat bij jullie past. Van zelfstandig aan de slag tot volledig begeleide trajecten. Inclusief LEGO® stenen.">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-terracotta': '#D4A574',
+                        'soft-beige': '#F5F1EB',
+                        'deep-green': '#4A5D23',
+                        'warm-gray': '#8B8680',
+                        'cream-white': '#FEFCF8',
+                        'soft-orange': '#E8B86D'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #FEFCF8 0%, #F5F1EB 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4A574 0%, #E8B86D 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #D4A574;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MEEST GEKOZEN';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, #D4A574, #E8B86D);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="text-warm-gray">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-cream-white/90 backdrop-blur-md border-b border-warm-terracotta/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <img src="resources/Logo Steentje bij Steentje.png" alt="Steentje bij Steentje Logo" class="h-10 w-auto">
+                    <span class="font-playfair text-xl font-semibold text-warm-gray">Steentje bij Steentje</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                    <a href="over-ons.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                    <a href="werkwijze.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                    <a href="prijzen.html" class="nav-link font-inter font-medium text-warm-terracotta">Prijzen</a>
+                    <a href="ervaringen.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                    <a href="blogs.html" class="nav-link font-inter font-medium hover:text-warm-terracotta transition-colors">Blog</a>
+                    <a href="plan-sessie.html" class="btn-primary px-6 py-2 rounded-full text-white font-inter font-medium">Plan een sessie</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-cream-white border-t border-warm-terracotta/20" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Home</a>
+                <a href="over-ons.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Over ons</a>
+                <a href="werkwijze.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Werkwijze</a>
+                <a href="prijzen.html" class="block py-2 font-inter font-medium text-warm-terracotta">Prijzen</a>
+                <a href="ervaringen.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Ervaringen</a>
+                <a href="blogs.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Blog</a>
+                <a href="plan-sessie.html" class="block py-2 font-inter font-medium hover:text-warm-terracotta transition-colors">Plan een sessie</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-playfair text-5xl lg:text-6xl font-bold text-warm-gray mb-6 reveal">
+                Kies jullie traject
+            </h1>
+            <p class="text-xl text-warm-gray/80 max-w-3xl mx-auto reveal">
+                Of je nu zelfstandig aan de slag wilt of volledig begeleid - er is een pakket dat perfect bij jullie past
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Startpakket -->
+                <div class="pricing-card bg-white rounded-2xl shadow-xl p-8 hover-lift reveal">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-4 bg-soft-beige rounded-full mb-4">
+                            <svg class="w-12 h-12 text-warm-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-warm-gray mb-2">🌱 Startpakket</h3>
+                        <p class="text-warm-gray/60 mb-4">Zelf aan de slag</p>
+                        <div class="text-5xl font-bold text-deep-green mb-2">€195</div>
+                        <p class="text-sm text-warm-gray/60">per traject (incl. btw)</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">3 sessies via de webapp</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Inspirerende opdrachten & bouwinstructies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Upload & terugkijkfunctie</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80"><strong>Inclusief eigen LEGO®-doos</strong> (± 300 stenen)</span>
+                        </li>
+                    </ul>
+
+                    <a href="plan-sessie.html?pakket=start" class="block w-full text-center px-6 py-3 border-2 border-warm-terracotta text-warm-terracotta rounded-full font-semibold hover:bg-warm-terracotta hover:text-white transition-all">
+                        Kies Startpakket
+                    </a>
+                </div>
+
+                <!-- Pluspakket - Featured -->
+                <div class="pricing-card featured bg-white rounded-2xl shadow-2xl p-8 hover-lift reveal">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-4 bg-soft-beige rounded-full mb-4">
+                            <svg class="w-12 h-12 text-warm-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-warm-gray mb-2">🌿 Pluspakket</h3>
+                        <p class="text-warm-gray/60 mb-4">Met begeleiding</p>
+                        <div class="text-5xl font-bold text-deep-green mb-2">€595</div>
+                        <p class="text-sm text-warm-gray/60">per traject (incl. btw)</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80"><strong>Persoonlijke intake</strong> + uitgebreide uitleg</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">4 sessies (mix van thuis en met begeleiding)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Feedback & coaching op jullie bouwwerken</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Exclusieve toegang tot extra opdrachten</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80"><strong>Inclusief eigen LEGO®-doos</strong> (± 300 stenen)</span>
+                        </li>
+                    </ul>
+
+                    <a href="plan-sessie.html?pakket=plus" class="block w-full text-center px-6 py-3 btn-primary text-white rounded-full font-semibold">
+                        Kies Pluspakket
+                    </a>
+                </div>
+
+                <!-- Premium -->
+                <div class="pricing-card bg-white rounded-2xl shadow-xl p-8 hover-lift reveal">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-4 bg-soft-beige rounded-full mb-4">
+                            <svg class="w-12 h-12 text-warm-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-playfair text-2xl font-bold text-warm-gray mb-2">🌳 Premium</h3>
+                        <p class="text-warm-gray/60 mb-4">Persoonlijk traject</p>
+                        <div class="text-5xl font-bold text-deep-green mb-2">€995</div>
+                        <p class="text-sm text-warm-gray/60">per traject (incl. btw)</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80"><strong>2 live sessies</strong> + 3 webapp-sessies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Persoonlijke reflectierapportage en advies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Extra sessie "Toekomst bouwen"</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80"><strong>Luxe LEGO®-doos met logo</strong> (± 300 stenen in opbergbox)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-deep-green mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-warm-gray/80">Het meest complete traject</span>
+                        </li>
+                    </ul>
+
+                    <a href="plan-sessie.html?pakket=premium" class="block w-full text-center px-6 py-3 border-2 border-warm-terracotta text-warm-terracotta rounded-full font-semibold hover:bg-warm-terracotta hover:text-white transition-all">
+                        Kies Premium
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra Info Section -->
+    <section class="py-20 bg-soft-beige">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-playfair text-3xl font-bold text-warm-gray mb-8 text-center reveal">
+                Goed om te weten
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <h4 class="font-semibold text-warm-gray mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-warm-terracotta mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Betaalmogelijkheden
+                    </h4>
+                    <p class="text-warm-gray/70">
+                        Alle prijzen zijn inclusief BTW. Betaling via iDEAL of achteraf betalen mogelijk.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <h4 class="font-semibold text-warm-gray mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-warm-terracotta mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        Geld-terug-garantie
+                    </h4>
+                    <p class="text-warm-gray/70">
+                        Niet tevreden na de eerste sessie? Dan krijg je je geld terug. Geen vragen gesteld.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <h4 class="font-semibold text-warm-gray mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-warm-terracotta mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Flexibele planning
+                    </h4>
+                    <p class="text-warm-gray/70">
+                        Plan de sessies wanneer het jullie uitkomt. Het traject is 6 maanden geldig.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <h4 class="font-semibold text-warm-gray mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-warm-terracotta mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Voor wie?
+                    </h4>
+                    <p class="text-warm-gray/70">
+                        Alle pakketten zijn geschikt voor stellen en koppels, ongeacht jullie relatieduur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-warm-terracotta to-soft-orange">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-playfair text-4xl lg:text-5xl font-bold text-white mb-6">
+                Nog vragen?
+            </h2>
+            <p class="text-xl text-white/90 mb-12 leading-relaxed">
+                We helpen je graag bij het kiezen van het juiste pakket. Plan een gratis kennismakingsgesprek.
+            </p>
+            <a href="plan-sessie.html" class="bg-white text-warm-terracotta px-8 py-4 rounded-full font-inter font-bold text-lg hover:bg-cream-white transition-all duration-300 inline-flex items-center">
+                Plan een gratis kennismaking
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-warm-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="resources/Logo Steentje bij Steentje.png" alt="Steentje bij Steentje" class="h-10 w-auto filter brightness-0 invert">
+                        <span class="font-playfair text-xl font-semibold">Steentje bij Steentje</span>
+                    </div>
+                    <p class="text-white/80 mb-6 leading-relaxed">
+                        Professionele relatiecoaching met LEGO® Serious Play.
+                        Bouw aan je relatie, één steentje tegelijk.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Contact</h3>
+                    <div class="space-y-2 text-white/80">
+                        <p>📧 info@steentjebijsteentje.nl</p>
+                        <p>📞 06-12345678</p>
+                        <p>📍 Amsterdam, Nederland</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-playfair text-lg font-semibold mb-4">Snelle links</h3>
+                    <div class="space-y-2">
+                        <a href="over-ons.html" class="block text-white/80 hover:text-white transition-colors">Over ons</a>
+                        <a href="werkwijze.html" class="block text-white/80 hover:text-white transition-colors">Werkwijze</a>
+                        <a href="prijzen.html" class="block text-white/80 hover:text-white transition-colors">Prijzen</a>
+                        <a href="ervaringen.html" class="block text-white/80 hover:text-white transition-colors">Ervaringen</a>
+                        <a href="plan-sessie.html" class="block text-white/80 hover:text-white transition-colors">Plan een sessie</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-12 pt-8 text-center text-white/60">
+                <p>&copy; 2024 Steentje bij Steentje. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(reveal => revealObserver.observe(reveal));
+    </script>
+</body>
+</html>
